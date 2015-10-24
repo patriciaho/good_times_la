@@ -1,24 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @good_time.name %>
-</p>
+<div class='row'>
+  <div class="col-md-9">
+    <%= image_tag(@good_time.picture_url, width: '100%') if @good_time.picture.present? %>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @good_time.description %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(@good_time.picture_url, :width => 600) if @good_time.picture.present? %>
-</p>
-
-<p>
-  <strong>Visit:</strong>
-  <%= @good_time.visit %>
-</p>
-
-<%= link_to 'Edit', edit_good_time_path(@good_time) %> |
-<%= link_to 'Back', good_times_path %>
+  <div class="col-md-3">
+    <p><b>Name: </b><%= @good_time.name %></p>
+    <p><b>Description: </b><%= @good_time.description %></p>
+    <p>
+      <%= link_to 'Edit', edit_good_time_path(@good_time) %> |
+      <%= link_to 'Destroy', @good_time, data: { confirm: 'Are you sure?' }, method: :delete %> |
+      <%= link_to 'Back', good_time_path %>
+    </p>
+  </div>
+</div>
