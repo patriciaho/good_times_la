@@ -1,33 +1,15 @@
 <h1>Good Times in LA!!!</h1>
-<br>
-<br>
-<br>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Picture</th>
-      <th>Visit</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @good_times.each do |good_time| %>
-      <tr>
-        <td><%= good_time.name %></td>
-        <td><%= good_time.description %></td>
-        <td><%= image_tag(good_time.picture_url, :width => 75) if good_time.picture.present? %></td>
-        <td><%= good_time.visit %></td>
-        <td><%= link_to 'Show', good_time %></td>
-        <td><%= link_to 'Edit', edit_good_time_path(good_time) %></td>
-        <td><%= link_to 'Destroy', good_time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% @good_times.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |good_time| %>
+      <div class="col-md-4">
+        <%= image_tag good_time.picture_url, width: '100%' if good_time.picture.present?%>
+        <h4><%= link_to good_time.name, good_time %></h4>
+        <%= good_time.description %>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
+  </div>
+<% end %>
 
 <%= link_to 'Create a New Good Time', new_good_time_path %>
