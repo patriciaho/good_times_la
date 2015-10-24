@@ -10,6 +10,8 @@ class GoodTimesController < ApplicationController
   # GET /good_times/1
   # GET /good_times/1.json
   def show
+    @comments = @good_time.comments.all
+    @comment = @good_time.comments.build
   end
 
   # GET /good_times/new
