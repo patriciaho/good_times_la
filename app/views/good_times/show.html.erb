@@ -12,7 +12,7 @@
 
 <p>
   <strong>Picture:</strong>
-  <%= @good_time.picture %>
+  <%= image_tag(@good_time.picture_url, :width => 600) if @good_time.picture.present? %>
 </p>
 
 <p>
