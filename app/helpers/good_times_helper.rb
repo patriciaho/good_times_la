@@ -1,0 +1,2 @@
+module GoodTimesHelper
+end

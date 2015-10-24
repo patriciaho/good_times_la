@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @good_time.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @good_time.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @good_time.picture %>
+</p>
+
+<p>
+  <strong>Visit:</strong>
+  <%= @good_time.visit %>
+</p>
+
+<%= link_to 'Edit', edit_good_time_path(@good_time) %> |
+<%= link_to 'Back', good_times_path %>

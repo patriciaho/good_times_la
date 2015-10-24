@@ -1,0 +1,33 @@
+<h1>Good Times in LA!!!</h1>
+<br>
+<br>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th>Visit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @good_times.each do |good_time| %>
+      <tr>
+        <td><%= good_time.name %></td>
+        <td><%= good_time.description %></td>
+        <td><%= good_time.picture %></td>
+        <td><%= good_time.visit %></td>
+        <td><%= link_to 'Show', good_time %></td>
+        <td><%= link_to 'Edit', edit_good_time_path(good_time) %></td>
+        <td><%= link_to 'Destroy', good_time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create a New Good Time', new_good_time_path %>
