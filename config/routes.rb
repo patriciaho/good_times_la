@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/info'
+
   root 'good_times#index'
   resources :good_times
   # The priority is based upon order of creation: first created -> highest priority.
